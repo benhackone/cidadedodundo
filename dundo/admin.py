@@ -9,7 +9,7 @@ admin.site.register(Categoria, CategoriaAdmin)
 
 
 class NoticiaAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'slug', 'autor', 'publish', 'status')
+    list_display = ('titulo', 'slug', 'autor', 'publish', 'status', 'categoria')
     list_filter = ('status', 'publish', 'autor')
     search_fields = ('titutlo', 'noticia_texto')
     prepopulated_fields = {'slug': ('titulo',)}

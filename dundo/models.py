@@ -34,7 +34,7 @@ class Noticia(models.Model):
     autor = models.ForeignKey(User, related_name='dundo_noticias')
     fonte_noticia = models.CharField(max_length=250, null=True, blank=True)
     fonte_url = models.URLField(blank=True)
-    noticia_texto = models.TextField(max_length=15000)
+    noticia_texto = models.TextField(max_length=10000)
     imagem_url = models.URLField(blank=True)
 
     # Não obriga a definir categoria por causa do blank=True
