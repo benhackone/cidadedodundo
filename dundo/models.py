@@ -12,8 +12,8 @@ class Categoria(models.Model):
 
     class Meta:
         ordering = ('nome',)
-        verbose_name = 'category'
-        verbose_name_plural = 'categories'
+        verbose_name = 'categoria'
+        verbose_name_plural = 'categorias'
 
     def __str__(self):
         return self.nome
