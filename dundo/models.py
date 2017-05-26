@@ -37,7 +37,7 @@ class Noticia(models.Model):
     noticia_texto = models.TextField(max_length=10000)
     imagem_url = models.URLField(blank=True)
 
-    # Não obriga a definir categoria por causa do blank=True
+    # Não obriga a definir a categoria por causa do blank=True
     categoria = models.ForeignKey(Categoria, related_name='noticias',  null=True, blank=True)
     publish = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
