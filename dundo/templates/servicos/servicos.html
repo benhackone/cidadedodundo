@@ -1,0 +1,148 @@
+{% extends "sidebar.html" %}
+
+{% load staticfiles %}
+
+
+{% block title %}Serviços{% endblock %}
+
+
+{% block sidecontent %}
+  <style type="text/css">
+    .sobreodundo{
+      display: flex;
+      padding: 0 0 10px 40px;
+    }
+    /*  */
+    .call-outs-container-2 {
+      background-color: white;
+      flex-basis: 100%;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.4);
+      border-radius: 3px;
+    }
+    .menu-title{
+      background-color:lavender;
+      border-radius: 3px;
+    }
+    .card-block h5{
+      text-align: center;
+    }
+    .card-block h5:hover, .card-block h5:focus{
+      text-decoration: none;
+    }
+
+    .card-block.list {
+         color: #047BFF;
+         list-style: none;
+         padding: 5px;
+      }
+      .card-block>.list li{
+         font-size: 15px;
+      }
+      .card-block>.list::first-line {
+         color: #333;
+      }
+      .card-block>.list> li, h5 {
+         padding: 5px 0px 5px 15px;
+      }
+      .card-block>.list>li:hover {
+         background-color: lavender;
+         color: #333;
+         font-weight: normal;
+         padding-left: 20px;
+         border-radius: 3px;
+      }
+    @media (max-width: 900px) {
+      .sobreodundo{
+        padding: 0px;
+      }
+
+      @media (max-width: 545px) {
+        .call-outs-container-2 {
+          padding: 10px;
+        }
+        .col-sm-6{
+          padding: 0;
+        }
+      }
+    }
+  </style>
+  <div class="sobreodundo">
+    <!--  -->
+    <div class="call-outs-container-2">
+        <h3>Serviços</h3>
+        <hr>
+        <h5 class="menu-title">Formulários</h5>
+        <div class="row">
+          <div class="col-sm-4">
+            <a>
+              <div class="card card-block">
+                <h5>Direcção da Saúde</h5>
+                <ul class="list">
+                  <li>
+                    <a href="/static/formularios/Visto-Schengen-Port-170716.pdf" download="Visto-Schengen"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Formulário de pedido de visto
+                    </a>
+                  </li>
+                  <li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Visto-Schengen</a></li>
+                  <li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Visto-Schengen</a></li>
+                  <li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Visto-Schengen</a></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-sm-4">
+            <a>
+              <div class="card card-block">
+                <h5>Direcção da Educação</h5>
+                <ul class="list">
+                  <li>
+                    <a href="/static/formularios/Visto-Schengen-Port-170716.pdf" download="Visto-Schengen"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Formulário de pedido de visto
+                    </a>
+                  </li>
+                  <li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Visto-Schengen</a></li>
+                  <li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Visto-Schengen</a></li>
+                  <li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Visto-Schengen</a></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-sm-4">
+            <a>
+              <div class="card card-block">
+                <h5>Direcção do Desporto</h5>
+                <ul class="list">
+                  <li>
+                    <a href="/static/formularios/Visto-Schengen-Port-170716.pdf" download="Visto-Schengen"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Formulário de pedido de visto
+                    </a>
+                  </li>
+                  <li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Visto-Schengen</a></li>
+                  <li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Visto-Schengen</a></li>
+                  <li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Visto-Schengen</a></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-sm-4">
+            <a>
+              <div class="card card-block">
+                <h5>Direcção do M do Interior</h5>
+                <ul class="list">
+                  <li>
+                    <a href="/static/formularios/Visto-Schengen-Port-170716.pdf" download="Visto-Schengen"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Formulário de pedido de visto
+                    </a>
+                  </li>
+                  <li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Visto-Schengen</a></li>
+                  <li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Visto-Schengen</a></li>
+                  <li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Visto-Schengen</a></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+        </div>   
+        <hr>
+    </div>
+  </div>
+{% endblock %}

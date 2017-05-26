@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% load static %} 
+
+{% load humanize %}
+<head>
+  {% block title %}Portal do Dundo{% endblock %}
+</head>
+
+
+{% block conteudo %}
+  <style type="text/css">
+    #visitar{
+      background-color: #F7F7F7;
+    }
+    #news{
+      background-color: #fff;
+    }
+    #news .section-content{
+      padding: 50px 0;
+    }
+    .card-news:hover{
+      box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.19);
+    }
+    /* Caption text */
+    .text-card {
+      color: #f2f2f2;
+      font-size: 40px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 10%;
+      width: 100%;
+      text-shadow: 6px 0 5px #333;
+      text-align: center;
+    }
+
+    .card-news:hover img, .card-news:focus img {
+      opacity: 0.6;
+      transition: 0.1s;
+    }
+    .cd-img-replace {
+      /* replace text with a background-image */
+      display: inline-block;
+      overflow: hidden;
+      text-indent: 100%;
+      white-space: nowrap;
+    }
+    .cd-scroll-down {
+      position: absolute;
+      left: 50%;
+      right: auto;
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      transform: translateX(-50%);
+      bottom: 20px;
+      width: 38px;
+      height: 44px;
+      background: url('/static/img/cd-arrow-bottom.svg') no-repeat center center;
+    }
+    
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 873px) {
+      .text-card {
+        font-size: 18px;
+        bottom: 60%;
+      }
+      .cd-scroll-down{
+        width: 24px;
+        height: 44px;
+        bottom: 50%;
+      }
+    }
+
+    /*----Galeria----*/
+    .card-img:hover {
+      opacity: 0.7;
+      transition: 0.3s;
+    }
+
+    
+  </style>
+
+  <section id='banner'>
+    <div class="contentor-slideshow">
+      <div class="meusSlides animated fade">
+        <img src="/static/img/cdundo-apt.jpg" alt="Cidade do Dundo">
+        <div class="text-card animated fadeInDown">Bem-vindo a Cidade do Dundo</div>
+      </div>
+
+      <div class="meusSlides animated fade">
+        <img src="/static/img/city.jpeg" alt="Museu do Dundo">
+        <div class="text-card animated slideInLeft">Museu do Dundo</div>
+      </div>
+
+      <div class="meusSlides animated fade">
+        <img src="/static/img/sea-bay-waterfront-beach.jpeg" >
+        <div class="text-card animated fadeInDown">Caption Three</div>
+      </div>
+      <a class="cd-scroll-down cd-img-replace">scroll down</a>
+    </div>
+  </section>
+
+
+  <section id="visitar">
+    <div class="section-content">
+      <div class="container">
+        <h3>Visite a Cidade do Dundo</h3>
+        <br>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card-columns">
+              <div class="card">
+                <img class="card-img" src="/static/img/quarto1.jpg" alt="A desktop with a computer on it">
+              </div>
+              <div class="card card-block text-xs-center">
+                <div class="card-block">
+                  <h4 class="card-title">Alojamento</h4>
+                </div>
+                <blockquote class="card-blockquote">
+                  <p>A Cidade do Dundo possui uma grande e diversificada oferta de alojamentos com condições para a sua estadia.</p>
+                  <div>
+                    <a href="/turismo/onde-ficar" class="btn btn-success-outline">Ver mais</a>
+                  </div>
+                </blockquote>
+              </div>
+
+              <div class="card">
+                <img class="card-img" src="/static/img/resort.jpg" alt="A desktop with a computer on it">
+              </div>
+              <div class="card card-block text-xs-center">
+                <div class="card-block">
+                  <h4 class="card-title">Lazer &amp; Diversão</h4>
+                </div>
+                <blockquote class="card-blockquote">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  <div>
+                    <a href="/turismo/lazer" class="btn btn-success-outline">Ver mais</a>
+                  </div>
+                </blockquote>
+              </div>
+
+              <div class="card">
+                <img class="card-img" src="/static/img/Obelisco.jpg" alt="A desktop with a computer on it">
+              </div>
+              <div class="card card-block text-xs-center">
+                <div class="card-block">
+                  <h4 class="card-title">Patrimónios</h4>
+                </div>
+                <blockquote class="card-blockquote">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  <div>
+                    <a href="/turismo/patrimonio" class="btn btn-success-outline">Ver mais</a>
+                  </div>
+                </blockquote>
+              </div>
+
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="news">
+    <div class="section-content">
+      <div class="container news">
+        <h3>Últimas noticías</h3>
+        <hr>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card-columns">
+            {% for noticia in noticias %}
+              <div class="card card-news">
+                <img src="{% if noticia.imagem_url %}{{ noticia.imagem_url }}{% else %}{% static "img/imagemindisponivel.jpg" %}{% endif %}"> 
+                <div class="card-block">
+                  <h5 class="card-title"><a href="{{ noticia.get_absolute_url }}">{{ noticia.titulo }}</a></h5>
+                  <p class="card-text">{{ noticia.noticia_texto|truncatewords:35|linebreaks }}</p>
+                  <p class="card-text"><small class="text-muted">Publicado a {{ noticia.publish |naturaltime}}</small></p>
+                </div>
+              </div>
+              {% endfor %}
+
+            </div>
+            <a href="/comunidade/noticias" class="btn btn-success-outline">Ler mais notícias</a>
+          </div>
+        </div> 
+        <hr>    
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-content">
+      <div class="container">
+        <div class="col-md-6">
+          <div class="about-text">
+            <h3>Sobre a cidade do Dundo</h3>
+            <p class="">O nome Dundo provém da borracheira “ndundu” originária das margens do rio “ndundu” actualmente rio Dundo, a partir da sua nascente até sua foz no rio Luachimo.</p>
+            <p>Os primeiros nativos que os colonos encontraram junto do rio eram os Tchowkes, os Kamusekeles, os Benamay e os Lubas. Actualmente existem cerca de 17 grupos étnicolinguísticos.</p>
+            
+            <!-- <h5>Segue-nos em:</h5>
+            <a href="" class="btn btn-sm btn-secondary-outline"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+            <a href="" class="btn btn-sm btn-secondary-outline"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
+            <a href="" class="btn btn-sm btn-secondary-outline"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="section-content">
+      <div class="container fotos">
+        <h3>Galeria</h3>
+        <hr>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card-columns">
+              <div class="card column">
+                <img src="/static/img/quarto1.jpg" alt="Quarto 1" class="card-img hover-shadow">
+              </div>
+
+              <div class="card column">
+                <img src="/static/img/Lunda-Norte-Dundo-New-City-angola.jpg" alt="Lunda-Norte-Dundo-New-City-angola" class="card-img hover-shadow">
+              </div>
+
+              <div class="card column">
+                <img src="/static/img/resort.jpg" alt="Resort" class="card-img hover-shadow">
+              </div>
+
+              <div class="card column">
+                <img src="/static/img/Obelisco.jpg" alt="Rotunda do Obelisco" class="card-img hover-shadow">
+              </div>
+
+              <div class="card column">
+                <img src="/static/img/hotel-piscina.jpg" alt="hotel-piscina" class="card-img hover-shadow">
+              </div>
+
+              <div class="card column">
+                <img src="/static/img/Dundo museu.jpg" alt="Museu Dundo" class="card-img hover-shadow">
+              </div>
+            </div>
+            <a href="/comunidade/galeria" class="btn btn-success-outline">Ver mais fotos</a>
+          </div>
+        </div>
+        <hr>    
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

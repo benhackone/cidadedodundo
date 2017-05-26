@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load noticia_count %}
+
+{% block title %}{% endblock %}
+
+{% block conteudo %}
+   <style type="text/css">
+      .sidebar-menu{
+         background-color: #f9f9f9;
+         padding: 40px;
+      }
+      .sidebar1 {
+         /* For browsers that do not support gradients */
+         background: -webkit-linear-gradient(#fff, #fff, #fff);
+         /* For Safari 5.1 to 6.0 */
+         background: -o-linear-gradient(#fff, #fff, #fff);
+         /* For Opera 11.1 to 12.0 */
+         background: -moz-linear-gradient(#fff, #fff, #fff);
+         /* For Firefox 3.6 to 15 */
+         background: linear-gradient(#fff, #fff, #fff);
+         /* Standard syntax */
+         padding: 0px;
+         min-height: 100%;
+         border-radius: 3px;
+         box-shadow: 0 1px 3px rgba(0,0,0,.4);
+         border: 2px solid #49DCFF;
+      }
+
+      .list {
+         color: #047BFF;
+         list-style: none;
+         padding: 5px;
+      }
+      .list li{
+         font-size: 15px;
+      }
+      .list::first-line {
+         color: #333;
+      }
+      .list> li, h5 {
+         padding: 5px 0px 5px 15px;
+      }
+      .list>li:hover {
+         background-color: #49DCFF;
+         color: #333;
+         font-weight: bolder;
+         padding-left: 20px;
+      }
+      .main-content h3{
+         text-align: center;
+      }
+      @media only screen and (max-width: 890px) {
+         .sidebar1{
+           display: none;
+         }
+         .sidebar-menu{
+            padding-right: 10px;
+            padding-left: 10px;
+         }
+      }
+   </style>
+   <div class="container-fluid">
+      <div class="row sidebar-menu">
+         <div class="col-md-2 col-sm-1 sidebar1">
+            <br>
+            <div class="left-navigation">
+               <ul class="list">
+                  <h5><strong>Links</strong></h5>
+                  <li><a href="/dundo/administracao">Administração</a></li>
+                  <li><a href="/comunidade/galeria">Galeria</a></li>
+                  <li><a href="/cidade-do-dundo/porque-o-dundo">Porquê o Dundo?</a></li>
+                  <li><a href="/turismo/onde-ficar">Onde ficar</a></li>
+                  <li><a href="/dundo/sobre">Sobre o Dundo</a></li>
+               </ul>
+               
+               <h5><strong>Últimas Noticias</strong></h5>
+                  {% show_latest_noticias 4%}
+               <br>
+
+               <ul class="list">
+                  <h5><strong>Eventos</strong></h5>
+                  <li>Festival de Música</li>
+                  <li>Teatro</li>
+                  <li>Inauguração</li>
+                  <li>Tennis</li>
+                  <li>Literatura infantil</li>
+               </ul>
+            </div>
+         </div>
+         <div class="main-content">
+         <!--Main content code to be written here --> 
+            <div class="sidebar">
+               {% block sidecontent %}
+
+               {% endblock %}
+            </div>
+         </div>
+      </div>
+   </div>
+{% endblock %}
