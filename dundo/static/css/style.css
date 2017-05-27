@@ -266,8 +266,16 @@ header{
 }
 
 @media only screen and (max-width: 990px){
+	.navbar-toggle {
+    	display: block;
+	}
 	header{display: none;}
-	.open-nav, .sidenav{display: block;}
+	.open-nav, .sidenav{
+		display: block;
+	}
+	.menu_form{
+  		margin-left: 10px;
+  	}
 
 	@media screen and (max-width: 547px) {
 	  	.menu_form{

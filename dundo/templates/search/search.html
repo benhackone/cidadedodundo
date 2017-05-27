@@ -61,6 +61,21 @@
     input[type=search]:focus {
       width: 70%;
     }
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 500px) {
+      #search .section-content{
+        padding: 20px 0;
+      }
+      h2{
+        font-size: 1.75em;
+      }
+      h3{
+        font-size: 1.50em;
+      }
+      div.search_news{
+        padding: 20px 10px;
+      }
+    }
   </style>
   <section id="search">
     <div class="section-content">
