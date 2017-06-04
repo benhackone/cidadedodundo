@@ -6,6 +6,7 @@
 {% block title %}{% endblock %}
 
 {% block conteudo %}
+   
    <style type="text/css">
       .sidebar-menu{
          background-color: #f9f9f9;
@@ -40,7 +41,7 @@
          color: #333;
       }
       .list> li, h5 {
-         padding: 5px 0px 5px 15px;
+         padding: 5px 0px 5px 5px;
       }
       .list>li:hover {
          background-color: #49DCFF;
@@ -66,12 +67,47 @@
             padding-bottom: 10px;
          }
       }
+      .dycalendar-container {
+         border: 2px solid #eee;
+         max-width: 200px;
+         display: block;
+         margin:0px 10px;
+         text-align: center;
+         background-color: white;
+      }
+      .dycalendar-day-container {
+         padding: 10px;
+      }
+      .dycalendar-day-container div {
+         padding: 0;
+         margin-bottom: 10px;
+      }
+      .dycalendar-day-container .dycalendar-span-day {
+         font-size: 1.7em;
+      }
+      .dycalendar-day-container .dycalendar-span-date {
+         font-size: 2em;
+      }
    </style>
    <div class="container-fluid">
       <div class="row sidebar-menu">
          <div class="col-md-2 col-sm-1 sidebar1">
             <br>
+            <!-- 
+               MIT License
+               Copyright (c) 2016 Yusuf Shakeel
+            </div> -->
+            <div class="calendar-container">
+               <div id="dycalendar-today" class="dycalendar-container"></div>
+            </div>
+            <script src="{% static 'js/dycalendar.min.js' %}"></script>
+            <script src="{% static 'js/default.js' %}"></script>
+
             <div class="left-navigation">
+               <br>
+               <h5><strong>Últimas Noticias</strong></h5>
+                  {% show_latest_noticias 4%}
+               
                <ul class="list">
                   <h5><strong>Links</strong></h5>
                   <li><a href="/dundo/administracao">Administração</a></li>
@@ -80,11 +116,6 @@
                   <li><a href="/turismo/onde-ficar">Onde ficar</a></li>
                   <li><a href="/dundo/sobre">Sobre o Dundo</a></li>
                </ul>
-               
-               <h5><strong>Últimas Noticias</strong></h5>
-                  {% show_latest_noticias 4%}
-               <br>
-
                <ul class="list">
                   <h5><strong>Eventos</strong></h5>
                   <li>Festival de Música</li>
