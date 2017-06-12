@@ -7,7 +7,7 @@ html, body {
 }
 
 body{
-	font-family:'Titillium Web', sans-serif,"Helvetica Neue",Helvetica, Arial, sans-serif;
+	font-family:'Ubuntu',sans-serif,'Titillium Web',sans-serif,"Helvetica Neue",Helvetica, Arial, sans-serif;
 }
 
 .fa-home{
@@ -34,6 +34,7 @@ body{
 .fa-search:visited{
 	color: #fff;
 }
+
 nav#menu-wrap{
 	width: 100%;
 	margin-bottom: 0;
@@ -261,8 +262,12 @@ header{
 .navbar-toggle:hover{
 	background-color: #333;
 }
-.btn-success{
+..btn-1-search{
 	padding: 4px 16px;
+}
+
+input.form-control {
+	max-width: 160px;
 }
 
 @media only screen and (max-width: 990px){
@@ -283,7 +288,7 @@ header{
 	  		padding:0;
 	  		margin: 5px;
 	  	}
-		.btn-success{
+		.btn-1-search{
 			background-color: transparent;
   	    	display: none;
 	    	margin-left: 5px;

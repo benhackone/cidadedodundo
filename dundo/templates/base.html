@@ -8,6 +8,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="shortcut icon" href="/static/favicon.ico">
 
+  <link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Dosis:600" rel="stylesheet">
 
@@ -36,9 +37,27 @@
   <script src="/static/js/Script.js"></script>
 </head>
 <style type="text/css">
+  
+  .modal-open{
+    padding: 0px;
+  }
   .conteudo{
     margin-top: 50px;
     background-color: #fff;
+  }
+
+  .btn-1-search{
+    padding: 4px 16px;
+    background-color: cornflowerblue;
+    border-color: cornflowerblue;
+  }
+  .btn-1-search:hover,.btn:focus{
+    border-color: cornflowerblue;
+    color: white;
+    background-color: #808080;
+  }
+  .btn-1-search>.fa-search:hover{
+    color: #fff;
   }
 </style>
 <body>
@@ -89,7 +108,7 @@
         <li>
           <form method="get" class="form-inline pull-xs-right" action="{% url 'haystack_search' %}" style="padding:0 5px;">
             <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
-            <button  class="btn btn-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <button  class="btn btn-1-search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
           </form>
         </li>
       </ul>
@@ -113,7 +132,7 @@
   <div class="open-nav" style="font-size:30px;">
     <form method="get" action="{% url 'haystack_search' %}" class="form-inline pull-xs-right menu_form">
       <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
-      <button class="btn btn-success" type="submit"><i class="fa fa-search fa-menu" aria-hidden="true"></i></button>
+      <button class="btn btn-1-search" type="submit"><i class="fa fa-search fa-menu" aria-hidden="true"></i></button>
     </form>
     <button type="button" class="navbar-toggle" data-toggle="collapse" onclick="openNav()">
       <span class="icon-bar" style="background-color: white;"></span>
@@ -163,13 +182,13 @@
               <h3 class="menuLinksTitle">Contactos</h3>
               <ul class="list-unstyled">
                 <li>
-                  <a href="">Rua 25 de Abril, Dundo, edificio 3</a>
+                  <a>Rua 25 de Abril, Dundo, edificio 3</a>
                 </li>
                 <li>
-                  <a href="">+244 925 448 787</a>
+                  <a>+244 925 448 787</a>
                 </li>
                 <li>
-                  <a href="">cidadedodundo@gmail.com</a>
+                  <a>cidadedodundo@gmail.com</a>
                 </li>
               </ul>
             </div>

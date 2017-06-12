@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
-from .models import Noticia
+from .models import Noticia, Emprego, CategoriaEmprego 
 # Create your views here.
 
 def dundo(request):
@@ -102,11 +102,20 @@ def noticia_detail(request, year, month, day, noticia):
 
 
 #-----------Servicos-----------------#
-def servicos(request):
-    return render(request, 'servicos/servicos.html')
+def servicos(request, category_slug=None):
+    categoria = None
+    categorias = CategoriaEmprego.objects.all()
+    empregos = Emprego.objects.filter(disponibilidade=True)
+    if category_slug:
+        categoria = get_object_or_404(CategoriaEmprego, slug=category_slug)
+        empregos = empregos.filter(categoria=categoria)
+    return render(request, 'servicos/servicos.html', {'categoria': categoria,
+                                                      'categorias': categorias,
+                                                      'empregos': empregos})
     
+
 #---------- Contacto ----------------#
-#   new imports for sending email 
+#   imports for sending email 
 from django.shortcuts import redirect
 from django.contrib import messages
 from.forms import ContactForm

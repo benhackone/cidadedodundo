@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Noticia, Categoria
+from .models import Noticia, Categoria, Emprego, CategoriaEmprego
 
 class CategoriaAdmin(admin.ModelAdmin):
 	list_display = ('nome', 'slug')
@@ -18,3 +18,16 @@ class NoticiaAdmin(admin.ModelAdmin):
     ordering = ['status', 'publish']
 
 admin.site.register(Noticia, NoticiaAdmin)
+
+class CategoriaEmpregoAdmin(admin.ModelAdmin):
+	list_display = ('nome', 'slug')
+	prepopulated_fields = {'slug': ('nome',)}
+
+admin.site.register(CategoriaEmprego, CategoriaEmpregoAdmin)
+
+class EmpregoAdmin(admin.ModelAdmin):
+    list_display = ['nome', 'slug', 'categoria', 'disponibilidade', 'criado', 'actualizado']
+    list_filter = ['disponibilidade', 'criado', 'actualizado', 'categoria']
+    list_editable = ['disponibilidade']
+    prepopulated_fields = {'slug': ('nome',)}
+admin.site.register(Emprego, EmpregoAdmin)

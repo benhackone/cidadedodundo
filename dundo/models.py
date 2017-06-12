@@ -13,7 +13,7 @@ class Categoria(models.Model):
     class Meta:
         ordering = ('nome',)
         verbose_name = 'categoria'
-        verbose_name_plural = 'categorias'
+        verbose_name_plural = 'categorias-Noticia'
 
     def __str__(self):
         return self.nome
@@ -56,3 +56,41 @@ class Noticia(models.Model):
                                                  self.publish.strftime('%m'),
                                                  self.publish.strftime('%d'),
                                                  self.slug])
+
+
+class CategoriaEmprego(models.Model):
+    nome = models.CharField(max_length=200, db_index=True)
+    slug = models.SlugField(max_length=200, db_index=True, unique=True)
+
+    class Meta:
+        ordering = ('nome',)
+        verbose_name = 'categoria'
+        verbose_name_plural = 'categorias-Emprego'
+
+    def __str__(self):
+        return self.nome
+
+    def get_absolute_url(self):
+        return reverse('dundo:emprego_list_by_categoria', args=[self.slug])
+
+
+class Emprego(models.Model):
+    categoria = models.ForeignKey(CategoriaEmprego, related_name='empregos')
+    nome = models.CharField(max_length=200, db_index=True)
+    slug = models.SlugField(max_length=200, db_index=True)
+    descricao = models.TextField(blank=True)
+    empresa = models.CharField(max_length=200, db_index=True, null=True)
+    contactos = models.CharField(max_length=300, db_index=True, null=True)
+    imagem = models.ImageField(upload_to='Emprego/%Y/%m/%d', blank=True)
+    disponibilidade = models.BooleanField(default=True)
+    criado = models.DateTimeField(auto_now_add=True)
+    actualizado = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('-criado',)
+        index_together = (('id', 'slug'),)
+
+    def __str__(self):
+        return self.nome
+
+    

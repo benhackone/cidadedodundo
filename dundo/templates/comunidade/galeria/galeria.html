@@ -5,7 +5,6 @@
 		.galeria{
 			background-color: #fff; 
 		}
-		
 		/*  */
 		.call-outs-container-2 {
 			max-width: 1400px;
@@ -13,18 +12,18 @@
 			display: flex;
 			justify-content: space-around;
 		}
-		h3{
+		.galeria>h3{
 			padding: 50px 0;
 			text-align: center;
 		}
 		
-		.card-img{
+		.card-img-galery{
 			border-radius: 0;
 		}
 
 
 		/*----Galeria----*/
-		.card-img:hover {
+		.card-img-galery:hover {
 			opacity: 0.7;
 			cursor: pointer;
 			transition: 0.3s;
@@ -163,7 +162,7 @@
 				<div class="col-sm-12">
 					<div class="card-columns">
 						<div class="card column">
-							<img src="/static/img/quarto1.jpg" alt="Quarto 1" onclick="openModal();currentSlide(1)" class="card-img hover-shadow">
+							<img src="/static/img/quarto1.jpg" alt="Quarto 1" onclick="openModal();currentSlide(1)" class="card-img-galery hover-shadow">
 						</div>
 
 						<div class="card column">
@@ -171,19 +170,19 @@
 						</div>
 
 						<div class="card column">
-							<img src="/static/img/resort.jpg" alt="Resort" onclick="openModal();currentSlide(3)" class="card-img hover-shadow">
+							<img src="/static/img/resort.jpg" alt="Resort" onclick="openModal();currentSlide(3)" class="card-img-galery hover-shadow">
 						</div>
 
 						<div class="card column">
-							<img src="/static/img/Obelisco.jpg" alt="Rotunda do Obelisco" onclick="openModal();currentSlide(4)" class="card-img hover-shadow">
+							<img src="/static/img/Obelisco.jpg" alt="Rotunda do Obelisco" onclick="openModal();currentSlide(4)" class="card-img-galery hover-shadow">
 						</div>
 
 						<div class="card column">
-							<img src="/static/img/hotel-piscina.jpg" alt="hotel-piscina" onclick="openModal();currentSlide(5)" class="card-img hover-shadow">
+							<img src="/static/img/hotel-piscina.jpg" alt="hotel-piscina" onclick="openModal();currentSlide(5)" class="card-img-galery hover-shadow">
 						</div>
 
 						<div class="card column">
-							<img src="/static/img/Dundo museu.jpg" alt="Museu Dundo" onclick="openModal();currentSlide(6)" class="card-img hover-shadow">
+							<img src="/static/img/Dundo museu.jpg" alt="Museu Dundo" onclick="openModal();currentSlide(6)" class="card-img-galery hover-shadow">
 						</div>
 					</div>
 				</div>
@@ -191,7 +190,7 @@
 
 			<div class="container">
 				<div id="myModal" class="modal">
-					<span class="close cursor" onclick="closeModal()">×</span>
+					<span class="close cursor" onclick="closeModal()">&times;</span>
 					<div class="modal-content">
 
 						<div class="mySlides">
