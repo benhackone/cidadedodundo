@@ -58,6 +58,16 @@ class Noticia(models.Model):
                                                  self.slug])
 
 
+class Eventos(models.Model):
+    nome = models.CharField(max_length=200, db_index=True)
+    slug = models.SlugField(max_length=200, db_index=True)
+    descricao = models.TextField(blank=True)
+    imagem = models.ImageField(upload_to='Eventos/%Y/%m/%d', blank=True)
+    criado = models.DateTimeField(auto_now_add=True)
+    actualizado = models.DateTimeField(auto_now=True)
+
+
+
 # Categoria para o emprego
 class CategoriaEmprego(models.Model):
     nome = models.CharField(max_length=200, db_index=True)
