@@ -4,7 +4,7 @@
 
 
 {% block title %}
-    {% if categoria %}{{ categoria.name }}{% else %}Empregos e Serviços{% endif %}
+    {% if categoria_emprego %}{{ categoria_emprego.name }}{% else %}Empregos e Serviços{% endif %}
 {% endblock %}
 
 
@@ -134,15 +134,15 @@
         <div class="dropdown">
           <h5 style="padding-left: 0px; padding-right: 0px; padding-top: 30px;">Categorias</h5>
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" href="{% url "dundo:servicos" %}">
-            {% if not categoria %}Todas{% else %}{{ categoria.nome }}{% endif %}
+            {% if not categoria_emprego %}Todas{% else %}{{ categoria_emprego.nome }}{% endif %}
           </button>
           <ul class="dropdown-menu">
             <li >
-              <a href="{% url "dundo:servicos" %}" {% if not categoria %}class="selected"{% endif %}>Todas</a>
+              <a href="{% url "dundo:servicos" %}" {% if not categoria_emprego %}class="selected"{% endif %}>Todas</a>
             </li>
             {% for c in categorias %}
               <li >
-                <a href="{{ c.get_absolute_url }}" {% if categoria.slug == c.slug %}class="selected"{% endif %}>{{ c.nome }}</a>
+                <a href="{{ c.get_absolute_url }}" {% if categoria_emprego.slug == c.slug %}class="selected"{% endif %}>{{ c.nome }}</a>
               </li>
             {% endfor %}
           </ul>
@@ -168,7 +168,7 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">{{ emprego.categoria }}</h4>
+                          <h4 class="modal-title">{{ emprego.categoria_emprego }}</h4>
                           <h6 class="modal-title">{{ emprego.nome }}</h6>
                         </div>
                         <div class="modal-body">

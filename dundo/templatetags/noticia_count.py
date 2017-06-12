@@ -17,5 +17,5 @@ def show_latest_noticias(count=5):
 
 @register.inclusion_tag('comunidade/noticias/ultimas_noticias.html')
 def mostrar_ultimas_noticias(count=4):
-	ultimas_noticias = Noticia.published.order_by('-categoria', '-publish')[:count]
+	ultimas_noticias = Noticia.published.order_by('-categoria_noticia', '-publish')[:count]
 	return {'ultimas_noticias': ultimas_noticias}

@@ -1,15 +1,15 @@
 from django.contrib import admin
-from .models import Noticia, Eventos, Categoria, Emprego, CategoriaEmprego
+from .models import Noticia, Eventos, CategoriaNoticia, Emprego, CategoriaEmprego
 
 class CategoriaAdmin(admin.ModelAdmin):
 	list_display = ('nome', 'slug')
 	prepopulated_fields = {'slug': ('nome',)}
 
-admin.site.register(Categoria, CategoriaAdmin)
+admin.site.register(CategoriaNoticia, CategoriaAdmin)
 
 
 class NoticiaAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'slug', 'autor', 'publish', 'status', 'categoria')
+    list_display = ('titulo', 'slug', 'autor', 'publish', 'status', 'categoria_noticia')
     list_filter = ('status', 'publish', 'autor')
     search_fields = ('titutlo', 'noticia_texto')
     prepopulated_fields = {'slug': ('titulo',)}
@@ -32,8 +32,8 @@ class CategoriaEmpregoAdmin(admin.ModelAdmin):
 admin.site.register(CategoriaEmprego, CategoriaEmpregoAdmin)
 
 class EmpregoAdmin(admin.ModelAdmin):
-    list_display = ['nome', 'slug', 'categoria', 'disponibilidade', 'criado', 'actualizado']
-    list_filter = ['disponibilidade', 'criado', 'actualizado', 'categoria']
+    list_display = ['nome', 'slug', 'categoria_emprego', 'disponibilidade', 'criado', 'actualizado']
+    list_filter = ['disponibilidade', 'criado', 'actualizado', 'categoria_emprego']
     list_editable = ['disponibilidade']
     prepopulated_fields = {'slug': ('nome',)}
 admin.site.register(Emprego, EmpregoAdmin)

@@ -6,14 +6,14 @@ from django.core.urlresolvers import reverse
 
 
 
-class Categoria(models.Model):
+class CategoriaNoticia(models.Model):
     nome = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True)
 
     class Meta:
         ordering = ('nome',)
-        verbose_name = 'categoria'
-        verbose_name_plural = 'categorias-Noticia'
+        verbose_name = 'categoria_noticia'
+        verbose_name_plural = 'categoriasNoticia'
 
     def __str__(self):
         return self.nome
@@ -38,7 +38,7 @@ class Noticia(models.Model):
     imagem_url = models.URLField(blank=True)
 
     # Não obriga a definir a categoria por causa do blank=True
-    categoria = models.ForeignKey(Categoria, related_name='noticias',  null=True, blank=True)
+    categoria_noticia = models.ForeignKey(CategoriaNoticia, related_name='noticias',  null=True, blank=True)
     publish = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
 
@@ -75,8 +75,8 @@ class CategoriaEmprego(models.Model):
 
     class Meta:
         ordering = ('nome',)
-        verbose_name = 'categoria'
-        verbose_name_plural = 'categorias-Emprego'
+        verbose_name = 'categoriaEmprego'
+        verbose_name_plural = 'categoriasEmprego'
 
     def __str__(self):
         return self.nome
@@ -86,7 +86,7 @@ class CategoriaEmprego(models.Model):
 
 
 class Emprego(models.Model):
-    categoria = models.ForeignKey(CategoriaEmprego, related_name='empregos')
+    categoria_emprego = models.ForeignKey(CategoriaEmprego, related_name='empregos')
     nome = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
     descricao = models.TextField(blank=True)

@@ -103,13 +103,13 @@ def noticia_detail(request, year, month, day, noticia):
 
 #-----------Servicos-----------------#
 def servicos(request, category_slug=None):
-    categoria = None
+    categoria_emprego = None
     categorias = CategoriaEmprego.objects.all()
     empregos = Emprego.objects.filter(disponibilidade=True)
     if category_slug:
-        categoria = get_object_or_404(CategoriaEmprego, slug=category_slug)
-        empregos = empregos.filter(categoria=categoria)
-    return render(request, 'servicos/servicos.html', {'categoria': categoria,
+        categoria_emprego = get_object_or_404(CategoriaEmprego, slug=category_slug)
+        empregos = empregos.filter(categoria_emprego=categoria_emprego)
+    return render(request, 'servicos/servicos.html', {'categoria_emprego': categoria_emprego,
                                                       'categorias': categorias,
                                                       'empregos': empregos})
     

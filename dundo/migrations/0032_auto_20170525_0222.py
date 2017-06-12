@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='noticia',
             name='categoria',
-            field=models.TextField(max_length=100, null=True, verbose_name=dundo.models.Categoria),
+            field=models.TextField(max_length=100, null=True, verbose_name=dundo.models.CategoriaNoticia),
         ),
     ]
