@@ -58,6 +58,7 @@ class Noticia(models.Model):
                                                  self.slug])
 
 
+# Categoria para o emprego
 class CategoriaEmprego(models.Model):
     nome = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True)
