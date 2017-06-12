@@ -101,7 +101,7 @@ def noticia_detail(request, year, month, day, noticia):
     return render(request, 'comunidade/noticias/detail.html', {'noticia': noticia})
 
 
-#-----------Servicos-----------------#
+#-------------Servicos-----------------#
 def servicos(request, category_slug=None):
     categoria_emprego = None
     categorias = CategoriaEmprego.objects.all()
