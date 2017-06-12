@@ -57,7 +57,7 @@ class Noticia(models.Model):
                                                  self.publish.strftime('%d'),
                                                  self.slug])
 
-
+# Eventos
 class Eventos(models.Model):
     nome = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
