@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^comunidade/noticias/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<noticia>[-\w]+)/$', views.noticia_detail, name='noticia_detail'),
 
     url(r'^servicos$', views.servicos, name='servicos'),
-    #url(r'^(?P<category_slug>[-\w]+)/$', views.servicos, name='emprego_list_by_categoria'),
+    url(r'^(?P<category_slug>[-\w]+)/$', views.servicos, name='emprego_list_by_categoria'),
 
 	url(r'^contacto$', views.contactos, name='contactos'),
 ]
